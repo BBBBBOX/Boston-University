@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+\setlength{\textheight}{9.3in}
+\setlength{\textwidth}{7.1in}
+\setlength{\evensidemargin}{-0.2in}
+\setlength{\oddsidemargin}{-0.2in}
+\setlength{\headsep}{30pt}
+\setlength{\topmargin}{-0.6in}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+\newcommand{\addmedskip}{\addvspace{\medskipamount}}
+
+\newcommand{\addbigskip}{\addvspace{\bigskipamount}}
+
+\pagestyle{myheadings}
+\markboth{BU CAS CS 330.  Fall 2015.}{BU CAS CS 330.  Fall 2015.} 
+\newcounter{problemnum}
+\setcounter{problemnum}{0}
+\newenvironment{problem}
+     {\addbigskip \setcounter{partnum}{0}
+      \noindent\stepcounter{problemnum}\textbf{Problem
+                                             \arabic{problemnum}.\ }}
+     {\par\addbigskip}
+
+\newcounter{partnum}
+\setcounter{partnum}{0}
+\newenvironment{ppart}
+     {\addmedskip
+      \noindent\stepcounter{partnum}\textbf{(\alph{partnum})}\ }
+     {\par\addbigskip}
+
+
+
+\begin{document}
+\begin{center}
+\Large{\textbf{CAS CS 330.  Problem Set 3}}\\
+\smallskip
+\large{\textbf{Due by 11:59pm on Wednesday, February 11\\ electronically via websubmit}}
+\end{center}
+
+\medskip
+
+\begin{problem} (40 points)
+You are given a set $S$ of $n$ intervals $(s_i,f_i)$, $1\le i\le n$.
+You want to find a minimum subset $B^*\subseteq S$ such that for every
+interval in $S$, there is a interval in $B^*$ that overlaps it.
+(Motivating example: you have $n$  workers working
+different shifts, one shift each.  You want to organize a
+supervisory board as a subset of the workers
+so that every worker's shift overlaps with at least
+one board member's shift.)  Design an efficient algorithm
+to do so, prove that it is correct, and analyze its running time.  Hint:  be greedy.
+\end{problem}
+
+\begin{problem} (20 points)
+Consider the following generalization of the shortest path problem. Not only edges have costs, but also vertices: the cost of a vertex $u$ will be denoted by $w(u)$. The cost $w(P)$ of a path $P$ consisting of vertices $u_0, u_1, \dots , u_k$ is defined as the sums of the vertex and edge costs, except the starting vertex: $w(P)=w(u_0,u_1)+w(u_1)+w(u_1,u_2)+w(u_2)+\dots+w(u_{k-1},u_k)+w(u_k)$.(We did not include the cost of the starting vertex $u_0$ in order to make the cost of two paths $P_1$ and $P_2$ additive in the case when $P_2$ starts where $P_1$ ends.) Now consider the problem:
+given a directed graph G with nonnegative vertex and edge costs and vertices $s, t$, find the lowest-cost path from $s$ to $t$. Show an algorithm solving this problem, prove its correctness, and analyze its running time. (Hint: Find a way to reduce this problem to the one in which there are only edge costs.)
+\end{problem}
+
+\begin{problem}  (40 points)
+You are given a set of positive values $p_1< \dots< p_k$ and a set of
+negative values $n_1> \dots > n_k$.  You are driving a car that starts at
+zero and drives up and down along the real line.  It takes you unit time to
+cover unit distance, and eventually you need to get to each point $p_1,
+\dots, p_k$ and $n_1, \dots, n_k$.  Clearly, the solution that takes the
+least amount of time is to first drive all the way out to $p_k$ or $n_k$,
+whichever has the lower absolute value, and then come back to $n_k$ or
+$p_k$, respectively.  However, you are not interested in spending the least
+amount of total time.  Rather, because your job is drop off $2k$ senior
+executives (one at each point), and senior executives charge by the minute,
+you want want to minimize the total productivity lost.  More precisely,
+assume that executive who needs to be dropped off at point $x$ (where
+$x\in\{p_1, \dots, p_k, n_1, \dots n_k\}$) charges you amount $a_x$ for
+each unit of time until dropped off.  In that case, you may want to turn
+around and may pass zero multiple times, to drop off more expensive
+executives sooner, even though your total time may increase.  Note:
+executives are limber and jump out quickly, so no need to account for time
+spent slowing down and stopping---when you pass a point $x$ on the way to
+point $y$, you can drop off the executive for point $x$ without slowing
+yourself down.
+                                                                                
+Describe an algorithm to minimize your total cost by converting this
+problem to a shortest-path problem in a graph with $\Theta(k^2)$ nodes.
+Prove that your algorithm is correct and analyze its running time. (Hint: your main challenge
+is to figure out how to construct this graph. Each node
+in your graph should correspond to a possible state of your world. The state of your world
+starts out with no one dropped off and you at point 0; it evolves as you move; and it ends
+with everyone dropped off and you at either $n_k$ or $p_k$. Once you figure out what the nodes are,
+you also have to figure out what the edges are.)
+\end{problem}
+\end{document}

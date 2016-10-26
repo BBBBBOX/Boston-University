@@ -1,0 +1,125 @@
+\documentclass[12pt]{article}
+\setlength{\textheight}{9.3in}
+\setlength{\textwidth}{7.1in}
+\setlength{\evensidemargin}{-0.2in}
+\setlength{\oddsidemargin}{-0.2in}
+\setlength{\headsep}{30pt}
+\setlength{\topmargin}{-0.6in}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+\newcommand{\addmedskip}{\addvspace{\medskipamount}}
+
+\newcommand{\addbigskip}{\addvspace{\bigskipamount}}
+
+\pagestyle{myheadings}
+\markboth{BU CAS CS 330.  Fall 2015.}{BU CAS CS 330.  Fall 2015.} 
+\newcounter{problemnum}
+\setcounter{problemnum}{0}
+\newenvironment{problem}
+     {\addbigskip \setcounter{partnum}{0}
+      \noindent\stepcounter{problemnum}\textbf{Problem
+                                             \arabic{problemnum}.\ }}
+     {\par\addbigskip}
+
+\newcounter{partnum}
+\setcounter{partnum}{0}
+\newenvironment{ppart}
+     {\addmedskip
+      \noindent\stepcounter{partnum}\textbf{(\alph{partnum})}\ }
+     {\par\addbigskip}
+
+
+
+\begin{document}
+\begin{center}
+\Large{\textbf{CAS CS 330.  Problem Set 1}}\\
+\smallskip
+\large{\textbf{Due by 11:59pm on Wednesday, January 28, electronically\\ (instructions to be posted on Piazza)}}
+\end{center}
+
+\medskip
+
+\noindent\textbf{Note}: I encourage you to type up your problem sets; else, write them up and scan them in. Typing up your work allows to you revise it more easily, which means you are more likely to write clear and sound solutions. I specifically encourage you to use \LaTeX\ because it allows to focus on contents while it takes care of the form. This page \url{http://latex-project.org/ftp.html} provides distributions for the most common operating systems. Irecommend a good GUI front end with a built-in viewer that syncs between source and output (typically Ctrl-Click or Cmd-Click takes you back and forth).
+
+\medskip
+\noindent
+\textbf{Reading:}  Read the \href{http://www.cs.bu.edu/~reyzin/teaching/s15cs330/syllabus.html}{course syllabus}, and pay particular attention to the collaboration policy.  Read sections 1.2, 2.1, and 2.2 of the book.
+
+\medskip
+
+\noindent
+\textbf{Sign up for Piazza if you haven't yet}
+
+\medskip
+
+\begin{problem} (20 points)
+Let's modify the stable matching problem to be gender-free: there are simply $2n$ people, each ranks $2n-1$ others, and we want to pair them into $n$ pairs. Show that a stable matching may not always exist.
+(Note: this problem is quite timely, as the US Supreme Court agreed last week to consider whether the US Constitution permits states limit marriage to opposite-gender couples only; don't wait for them, as their ruling is expected after the problem set is due.)
+\end{problem}
+
+\begin{problem} (30 points)
+Chapter 1, problem 7. Hint: this is the stable matching problem wearing a different outfit.
+\end{problem}
+
+\begin{problem} (26 points)
+Read chapters 2.1 and 2.2 as review material, and the review of asymptotic notation available on Piazza. Rank the following functions by order of growth; that is, find an
+arrangement $g_1, g_2, \ldots, g_{20}$ of the functions satisfying
+$g_1=\Omega(g_2)$, $g_2=\Omega(g_3)$, \ldots, $g_{19}=\Omega(g_{20})$.
+Partition your list into equivalence classes (e.g., by underlining or circling
+equivalent functions) such that $f(n)$ and $g(n)$ are in the same class if
+and only if $f(n)=\Theta(g(n))$.  (Note: below, $\lg n$ means $\log_2 n$).
+\[
+\renewcommand{\arraystretch}{1.25}
+\begin{array}{cccccc}
+
+n^{100} & (\sqrt{2})^{\lg n} & n^2 & \sqrt{n}  & 2^{2^{n+1}}\\
+n^3 & \lg^2 n & \lg(n!) & 2^{2^n} & n^{1/\lg n}\\
+\lg n & 2^{100 \lg{n}} & n\cdot 2^n & n^{\lg\lg n} & \log_3 5n \\
+{n \choose 2} + n \lg n & 4^{\lg n} &
+ n &  n\lg
+n & 2^{\lg^{1.001} n}\\
+\end{array}
+\renewcommand{\arraystretch}{1}
+\]
+\end{problem}
+
+\begin{problem}
+(24 points)
+For each of the following relationships, find two functions $f(n)$ and
+$g(n)$ that satisfy it.  If no such $f$ and $g$ exist, write ``NONE''
+and briefly explain why no such functions exist.
+
+\begin{ppart}
+$f(n) = o(g(n))$ and $f(n) \neq \Theta(g(n))$.
+\end{ppart}
+
+\begin{ppart}
+ $f(n) = \Theta(g(n))$ and $f(n) = o(g(n))$.
+\end{ppart}
+
+\begin{ppart}
+ $f(n) = \Theta(g(n))$ and $f(n) \neq O(g(n))$.
+\end{ppart}
+
+\begin{ppart}
+ $f(n) = \Omega(g(n))$ and $f(n) \neq O(g(n))$.
+\end{ppart}
+
+\begin{ppart}
+ $f(n) = \Omega(g(n))$ and $f(n) \neq o(g(n))$.
+\end{ppart}
+
+
+\begin{ppart}
+ $f(n) = \omega(g(n))$ and $g(n) \neq o(f(n))$.
+\end{ppart}
+\end{problem}
+
+
+
+
+\end{document}
